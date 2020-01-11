@@ -1,0 +1,42 @@
+<router-outlet>
+  <div class="card" *ngFor="let d of prodData">
+    <div
+      class="card-header"
+      style="background-color: rgb(59, 59, 192);color: white"
+    >
+      Product Details {{ d.productId }} - {{ d.product }}
+    </div>
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <span>Product ID : {{ d.productId }}</span>
+        </div>
+        <div class="row">
+          <span>Product Name : {{ d.product }}</span>
+        </div>
+        <div class="row">
+          <span>Code : {{ d.code }}</span>
+        </div>
+        <div class="row">
+          <span>Product Availability : {{ d.available }}</span>
+        </div>
+        <div class="row">
+          <span>Product Price : {{ d.price }}</span>
+        </div>
+        <div class="row">
+          <span>Product Rating : {{ d.rating }}</span>
+        </div>
+        <div class="row">
+          <span
+            >Product Image : <img class="img-fluid" src="{{ d.productImage }}"
+          /></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-muted">
+      <button type="button" class="btn btn-primary" (click)="backBtnClicked()">
+        Back
+      </button>
+    </div>
+  </div>
+</router-outlet>

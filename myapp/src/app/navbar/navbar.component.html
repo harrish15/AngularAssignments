@@ -1,0 +1,80 @@
+<nav
+  class="navbar fixed-top navbar-expand-sm navbar-dark"
+  style="background-color: #0c1b25;"
+>
+  <a class="navbar-brand" href="#">My App</a>
+  <button
+    class="navbar-toggler d-lg-none"
+    type="button"
+    data-toggle="collapse"
+    data-target="#collapsibleNavId"
+    aria-controls="collapsibleNavId"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/prods">Product Lists</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user-registration"
+          >User Registration</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user-login"
+          >User Login</a
+        >
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          id="dropdownId"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Dropdown</a
+        >
+        <div class="dropdown-menu" aria-labelledby="dropdownId">
+          <a class="dropdown-item" routerLink="/gadget">Gadget</a>
+          <a class="dropdown-item" routerLink="/table">Table</a>
+          <a class="dropdown-item" routerLink="/heart">Heart</a>
+          <a class="dropdown-item" routerLink="/malefemale">Male Female</a>
+          <a class="dropdown-item" routerLink="/twitter">Twitter</a>
+          <a class="dropdown-item" routerLink="/parent">Parent</a>
+          <a class="dropdown-item" routerLink="/electronic">Electronic</a>
+          <a class="dropdown-item" routerLink="/lorempixel">Lorempixel</a>
+          <a
+            class="dropdown-item"
+            [routerLink]="['/dropdownParent', 'dropdownng']"
+            >Dropdown ngModel</a
+          >
+          <a
+            class="dropdown-item"
+            [routerLink]="['/dropdownDirectiveParent', 'dropdownDirective']"
+            >Dropdown Directive</a
+          >
+          <a class="dropdown-item" routerLink="/template">Template Form</a>
+          <a class="dropdown-item" routerLink="/reactive">Reactive Form</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/about">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+  </div>
+</nav>

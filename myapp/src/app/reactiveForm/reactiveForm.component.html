@@ -1,0 +1,91 @@
+
+<div class="container" style="background-color:teal">
+    
+    <div class="row">
+        
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            
+            <form 
+            [formGroup]="userForm"
+            class="form-horizontal" role="form"
+            (ngSubmit)="Save(userForm)"
+            >
+                    <div class="form-group">
+                        <legend>ReactiveForm</legend>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="input" class="col-sm-2 control-label">username</label>
+                        <div class="col-sm-10"
+                        >
+                            <input type="text"
+                             placeholder="enter your username"
+                             class="form-control"
+                             [class.is-invalid]="!userForm.get('username').valid
+                             && userForm.get('username').touched
+                             "
+                             [class.is-valid]="userForm.get('username').valid
+                             "
+                             formControlName="username"
+                            >
+                            <div class="valid-feedback"
+                            *ngIf="userForm.get('username').valid"
+                            >
+                                Looks good!
+                              </div>
+                              <div class="invalid-feedback"
+                              *ngIf="!userForm.get('username').valid
+                              && userForm.get('username').touched
+                              "
+                              >
+                                please choose username!
+                                </div>
+  
+                            <div
+                            class="alert alert-danger"
+                            *ngIf="userForm.get('username').hasError('required')
+                            && userForm.get('username').touched
+                            "                            
+                            >
+                             username is required*
+                        </div>
+                        <div
+                        class="alert alert-danger"
+                        *ngIf="userForm.get('username').hasError('minlength')
+                        && userForm.get('username').touched
+                        "                            
+                        >
+                         username must be a 5 characters
+                    </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input" class="col-sm-2 control-label">password</label>
+                        <div class="col-sm-10">
+                            <input type="password"
+                             placeholder="enter your password"
+                             class="form-control"
+                             formControlName="password"
+                             [class.is-invalid]="!userForm.get('password').valid
+                             && submitted
+                             "
+                             [class.is-valid]="userForm.get('username').valid
+                             "
+                             >
+
+                        </div>
+                    </div>            
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <button type="submit" class="btn 
+                            btn-primary"
+                            >Submit</button>
+                        </div>
+                    </div>
+            </form>
+            
+        </div>
+        
+    </div>
+    
+</div>

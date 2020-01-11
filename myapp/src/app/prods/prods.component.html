@@ -1,0 +1,91 @@
+<div class="card">
+  <div
+    class="card-header"
+    style="background-color: rgb(59, 59, 192);color: white"
+  >
+    Product List
+    <span *ngIf="rating"> : The rating is : {{ rating }} </span>
+  </div>
+  <div class="card-body">
+    <label class="card-text">Filter by :</label>
+    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+      <div class="input-group">
+        <input
+          id="search"
+          type="search"
+          name="searchText"
+          placeholder="What're you searching for?"
+          aria-describedby="button-addon1"
+          class="form-control border-0 bg-light"
+          [(ngModel)]="searchText"
+        />
+      </div>
+    </div>
+    <label class="card-text">Filter by : {{ searchText }}</label>
+    <div class="container">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="btnClicked()"
+              >
+                {{ btnText }} image
+              </button>
+            </th>
+            <th>
+              Product
+            </th>
+            <th>
+              Code
+            </th>
+            <th>
+              Available
+            </th>
+            <th>
+              Price
+            </th>
+            <th>
+              5 star rating
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of allData | search: searchText">
+            <td>
+              <img
+                class="img-fluid"
+                src="{{ data.productImage }}"
+                [ngStyle]="{
+                  display: isActive ? 'block' : 'none'
+                }"
+              />
+            </td>
+            <td>
+              <a routerLink="/prod/{{ data.productId }}">{{ data.product }}</a>
+            </td>
+            <td>{{ data.code }}</td>
+            <td>{{ data.available }}</td>
+            <td>{{ data.price }}</td>
+            <td (click)="rating = data.rating">
+              <ul class="rating">
+                <li class="fa fa-star"></li>
+                <li class="fa fa-star"></li>
+                <li class="fa fa-star"></li>
+                <li class="fa fa-star"></li>
+                <li class="fa fa-star"></li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    <button type="button" class="btn btn-primary" (click)="backBtnClicked()">
+      Back
+    </button>
+  </div>
+</div>

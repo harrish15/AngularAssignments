@@ -1,0 +1,51 @@
+<div class="container" style="background-color:teal">
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+      <form
+        [formGroup]="userLoginForm"
+        class="form-horizontal"
+        role="form"
+        (ngSubmit)="Save(userLoginForm.value)"
+      >
+        <div class="form-group">
+          <legend>ReactiveForm</legend>
+        </div>
+
+        <div class="form-group" formGroupName="UserLogin">
+          <label for="input" class="col-sm-2 control-label">username</label>
+          <div class="col-sm-10">
+            <input
+              type="text"
+              placeholder="enter your username"
+              class="form-control"
+              formControlName="UserName"
+            />
+          </div>
+        </div>
+        <div class="form-group" formGroupName="UserLogin">
+          <label for="input" class="col-sm-2 control-label">password</label>
+          <div class="col-sm-10">
+            <input
+              type="password"
+              placeholder="enter your password"
+              class="form-control"
+              formControlName="Password"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button
+              type="submit"
+              class="btn 
+                            btn-primary"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
